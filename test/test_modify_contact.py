@@ -1,6 +1,8 @@
 from model.contact import Contact
 
 def test_modify_first_contact(app):
+    if app.contact.count() == 0:
+        app.contact.create(Contact(firstname=u"Петр", middlename=u"Петрович", lastname=u"Петров"))
     app.contact.modify_first_contact(Contact(firstname=u"Петр", middlename=u"Петрович", lastname=u"Петров", nickname="petr", title=u"-", company=u"АСТА",
                             address=u"Москва, ул. Мира, д.23-к.84", homephone="902345", mobilephone="89212346789", workphone="902445", fax="789078",
                             email="f4@moi-uni.ru", email2="f5@moi-uni.ru", email3="f6@moi-uni.ru", homepage="https://moi-universitet.ru/", bday="16",
@@ -9,8 +11,12 @@ def test_modify_first_contact(app):
 
 
 def test_modify_first_contact_company(app):
+    if app.contact.count() == 0:
+        app.contact.create(Contact(firstname=u"Петр", middlename=u"Петрович", lastname=u"Петров"))
     app.contact.modify_first_contact(Contact(company=u"ИНФОРМ"))
 
 
 def test_modify_first_contact_birthday(app):
+    if app.contact.count() == 0:
+        app.contact.create(Contact(firstname=u"Петр", middlename=u"Петрович", lastname=u"Петров"))
     app.contact.modify_first_contact(Contact(bday="22", bmonth="September", byear="1980"))
