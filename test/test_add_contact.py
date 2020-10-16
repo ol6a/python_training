@@ -19,4 +19,4 @@ def test_add_contact(app):
             return int(cont.id)
         else:
             return maxsize
-    assert sorted(old_contacts, key=id_or_max) == sorted(new_contacts, key = id_or_max)
+    assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key = Contact.id_or_max)
