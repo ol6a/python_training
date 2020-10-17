@@ -76,10 +76,14 @@ class ContactHelper:
         wd.find_element_by_css_selector("div.msgbox")
         self.contact_cache = None
        
+    def modify_first_contact(self):
+        self.modify_contact_by_index(0)
 
-    def modify_first_contact(self, contact):
+
+    def modify_contact_by_index(self, index, contact):
         wd = self.app.wd
         self.open_home()
+        self.select_contact_by_index(index)
         wd.find_element_by_xpath("//img[@alt='Edit']").click()
         # fill contact form
         self.fill_contact_form(contact)
