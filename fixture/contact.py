@@ -81,10 +81,10 @@ class ContactHelper:
         wd = self.app.wd
         wd.find_element_by_css_selector("a[href='edit.php?id=" + id + "']").click()
 
-    def modify_contact(self, contact):
+    def modify_contact(self, index, contact):
         wd = self.app.wd
         self.open_home()
-        self.select_contact_by_id(contact.id)
+        self.open_contact_to_edit_by_index(index)
         # fill contact form
         self.fill_contact_form(contact)
         # submit update
@@ -92,6 +92,8 @@ class ContactHelper:
         self.app.return_to_home_page()
         self.contact_cache = None
 
+    def modify_first_contact(self):
+        self.modify_contact(0)
 
 
     def count(self):
@@ -118,3 +120,19 @@ class ContactHelper:
                 self.contact_cache.append(Contact(lastname=text_lastname, firstname=text_name, id=id))
         return list(self.contact_cache)
 
+    def open_contact_view_by_index(self, index):
+        wd = self.app.wd
+        self.open_home()
+        row = wd.find_elements__by_name("entry")[index]
+        cell = row.find_elements_by_tag_name("td")[6]
+        cell.find_element_by_tag_name("a").click()
+
+    def open_contact_to_edit_by_index(self,index):
+        wd = self.app.wd
+        self.open_home()
+        row = wd.find_elements_by_name("entry")[index]
+        cell = row.find_elements_by_tag_name("td")[7]
+        cell.find_element_by_tag_name("a").click()
+
+
+    
