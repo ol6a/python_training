@@ -75,22 +75,24 @@ class ContactHelper:
         wd.switch_to_alert().accept()
         wd.find_element_by_css_selector("div.msgbox")
         self.contact_cache = None
-       
-    def modify_first_contact(self):
-        self.modify_contact_by_index(0)
 
 
-    def modify_contact_by_index(self, index, contact):
+    def select_contact_by_id(self, id):
+        wd = self.app.wd
+        wd.find_element_by_css_selector("a[href='edit.php?id=" + id + "']").click()
+
+    def modify_contact(self, contact):
         wd = self.app.wd
         self.open_home()
-        self.select_contact_by_index(index)
-        wd.find_element_by_xpath("//img[@alt='Edit']").click()
+        self.select_contact_by_id(contact.id)
         # fill contact form
         self.fill_contact_form(contact)
         # submit update
         wd.find_element_by_name("update").click()
         self.app.return_to_home_page()
         self.contact_cache = None
+
+
 
     def count(self):
         wd = self.app.wd
