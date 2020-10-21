@@ -17,10 +17,6 @@ class Application:
         wd = self.wd
         wd.get("http://localhost/addressbook/")
 
-    def open_home(self):
-        wd = self.wd
-        if not (len(wd.find_elements_by_name("add")) > 0):
-            wd.find_element_by_link_text("home").click()
 
     def return_to_home_page(self):
         wd = self.wd

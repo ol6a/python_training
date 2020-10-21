@@ -117,10 +117,10 @@ class ContactHelper:
                 cells = element.find_elements_by_css_selector("td")
                 text_lastname = cells[1].text
                 text_name = cells[2].text
-                all_phones = cells[5].text.splitlines()
+                all_phones = cells[5].text
                 self.contact_cache.append(Contact(lastname=text_lastname, firstname=text_name, id=id,
-                                                  homephone=all_phones[0], mobilephone=all_phones[1],
-                                                  workphone=all_phones[2], phone2= all_phones[3]))
+                                                  all_phones_from_home_page = all_phones
+                                                ))
         return list(self.contact_cache)
 
     def open_contact_view_by_index(self, index):
