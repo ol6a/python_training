@@ -4,7 +4,7 @@ from sys import maxsize
 import pytest
 import random
 import string
-from data.groups import constant as testdata
+from data.groups import testdata
 
 
 
