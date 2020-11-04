@@ -20,6 +20,7 @@ def load_config(file):
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="firefox")
     parser.addoption("--target", action="store", default="target.json")
+    parser.addoption("--check_ui", action="store_true")
 
 @pytest.fixture
 def app(request):
@@ -40,7 +41,9 @@ def db(request):
     request.addfinalizer(fin)
     return dbfixture
 
-
+@pytest.fixture
+def check_ui(request):
+    return request.config.getoption("--check_ui")
 
 @pytest.fixture(scope="session", autouse=True)
 def stop(request):
