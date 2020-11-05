@@ -12,12 +12,14 @@ def test_contact_add_group(app, db):
     contact = random.choice(contacts)
     groups=app.group.get_group_list()
     group=random.choice(groups)
-    app.contact.contact_add_group(contact.id, group.name)
+    #app.contact.contact_add_group(contact.id, group.name)
+    app.contact.contact_add_group(contact.id, group.id)
     db = ORMFixture(host="127.0.0.1", name="addressbook", user="root", password="")
     l = db.get_contact_in_group(group)
     try:
         for item in l:
             if item == contact:
+                print("Контакт с id=" + str(contact.id) + " входит в группу с id=" + str(group.id))
                 return True
     finally:
         pass
