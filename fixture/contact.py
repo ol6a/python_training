@@ -17,6 +17,23 @@ class ContactHelper:
         self.app.return_to_home_page()
         self.contact_cache = None
 
+    def contact_add_group(self, id, group_name):
+        wd = self.app.wd
+        self.open_home()
+        wd.find_element_by_id(id).click()
+        wd.find_element_by_name("to_group").click()
+        Select(wd.find_element_by_name("to_group")).select_by_visible_text(group_name)
+        wd.find_element_by_name("to_group").click()
+        wd.find_element_by_name("add").click()
+
+        #Select(wd.find_element_by_name("to_group")).select_by_visible_text("% s") % group_name
+        #driver.find_element_by_link_text("group page \"nameR2\"").click()
+        #driver.find_element_by_link_text("home").click()
+        #driver.find_element_by_link_text("home").click()
+        #driver.find_element_by_id("154").click()
+        #driver.find_element_by_name("remove").click()
+        #driver.find_element_by_link_text("group page \"nameR2\"").click()
+
     def fill_contact_form(self, contact):
         wd = self.app.wd
         self.change_field_value("firstname", contact.firstname)
