@@ -17,12 +17,12 @@ class ContactHelper:
         self.app.return_to_home_page()
         self.contact_cache = None
 
-    def contact_add_group(self, contact, group_id):
+    def contact_add_group(self, contact_id, group_id):
         wd = self.app.wd
         self.open_home()
         #wd.find_element_by_id(contact_id).click()
         #wd.find_element_by_id(contact_id.id).click()
-        wd.find_element_by_id(contact.id).click()
+        wd.find_element_by_id(contact_id).click()
         #wd.find_element_by_css_selector("input[value='%s']" % contact_id.id).click()
         wd.find_element_by_name("to_group").click()
         Select(wd.find_element_by_name("to_group")).select_by_value(group_id)

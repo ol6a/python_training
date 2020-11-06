@@ -14,14 +14,9 @@ def test_contact_add_group(app, db):
     db = ORMFixture(host="127.0.0.1", name="addressbook", user="root", password="")
     groups=app.group.get_group_list()
     group=random.choice(groups)
-    if len(db.get_contact_not_in_group(group)) == 0:
-        contact=Contact(firstname=u"Петр", middlename=u"Петрович", lastname=u"Петров")
-        app.contact.create(contact)
-    else:
-        contacts=db.get_contact_not_in_group(group)
-        contact = random.choice(contacts)
-
-    app.contact.contact_add_group(contact, group.id)
+    contacts=db.get_contact_not_in_group(group)
+    contact = random.choice(contacts)
+    app.contact.contact_add_group(contact.id, group.id)
     #db = ORMFixture(host="127.0.0.1", name="addressbook", user="root", password="")
     l = db.get_contact_in_group(group)
     try:
