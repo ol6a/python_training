@@ -1,0 +1,7 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Wed Nov 25 15:42:48 MSK 2020","Wed Nov 25 15:42:51 MSK 2020","2649","test","test_add_group","","","","test_add_group[None:namemXSF;header6eh;footerf7u N]",""
+"passed","Wed Nov 25 15:42:57 MSK 2020","Wed Nov 25 15:42:59 MSK 2020","2638","test","test_add_group","","","","test_add_group[None:namem;headerKeF;footera565lD1Mfl8TfQ]",""
+"passed","Wed Nov 25 15:42:54 MSK 2020","Wed Nov 25 15:42:56 MSK 2020","2488","test","test_add_group","","","","test_add_group[None:nameR2;header;footerVzkX4s8 bWenW3dv]",""
+"passed","Wed Nov 25 15:42:59 MSK 2020","Wed Nov 25 15:43:02 MSK 2020","2894","test","test_add_group","","","","test_add_group[None:nameMq;headerA;footerZbLEq2QqxtVg1he]",""
+"passed","Wed Nov 25 15:42:51 MSK 2020","Wed Nov 25 15:42:54 MSK 2020","2624","test","test_add_group","","","","test_add_group[None:name;headerB IB4mO hWmdX0KNTqm;footerPoFas2SA8bh emApBFk]",""
+"passed","Wed Nov 25 15:42:44 MSK 2020","Wed Nov 25 15:42:48 MSK 2020","3943","test","test_add_group","","","","test_add_group[None:;;]",""
